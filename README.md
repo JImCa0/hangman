@@ -1,0 +1,1 @@
+The output will also show a list of available letters and letters already guessed. It will show an empty _ if that letter hasn't been guessed yet. Output will also show how many chances you have left.
