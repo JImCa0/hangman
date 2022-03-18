@@ -1,0 +1,6 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: osx-64
+@EXPLICIT
+https://repo.anaconda.com/pkgs/main/osx-64/conda-env-2.6.0-1.conda
+https://repo.anaconda.com/pkgs/main/osx-64/blas-1.0-mkl.conda
