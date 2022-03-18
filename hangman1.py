@@ -152,6 +152,26 @@ def hangman(secret_word):
     while chances_left(letters_guessed)>0:
         
         guess=input('Please enter your guess: ')
+        def only_alphabet( x ):  
+            case_1 = x not in ['cheat', 'show', 'dele']
+            case_2 = x not in ('abcdefghijklmnopqrstuvwxyz')
+            if case_1 and case_2: 
+                raise Exception("Invalid input!")         # when abnoral detected
+        try:    
+            only_alphabet(guess)            # cast abnormal
+        except Exception:     
+            print("please input one lower case letter")
+            continue
+        def control_length(x):
+            case_1 = x not in ['cheat', 'show', 'dele']
+            case_2 = len(str(x))>1
+            if case_1 and case_2:
+                raise Exception("please input only one lower case letter")
+        try:    
+            control_length(guess)            # cast abnormal
+        except Exception:     
+            print("please input one lower case letter")
+            continue
         if guess == "cheat":
                 hint.hint.cheat()
                 print('You cheated, but you win')
@@ -165,6 +185,7 @@ def hangman(secret_word):
             print('Available letters: '+"".join(hint.hint.dele(secret_word,letters_guessed)))
             print('-----------------------------------------------------')
             continue
+        '''
         if len(guess)>1:
             print('Please enter only one letter at a time.')
             print('You have '+str(chances_left(letters_guessed))+' chances left')
@@ -186,6 +207,7 @@ def hangman(secret_word):
             print('Available letters: '+get_available_letters(letters_guessed))
             print('-----------------------------------------------------')
             continue
+        '''
         if guess in letters_guessed:
             print("You have already guessed this letter.") 
             print('You have '+str(chances_left(letters_guessed))+' chances left')
